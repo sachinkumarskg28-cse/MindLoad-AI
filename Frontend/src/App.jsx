@@ -1,3 +1,4 @@
+import Recommendations from "./components/Recommendations";
 import StressChart from "./charts/StressChart";
 import { useState } from "react";
 import "./App.css";
@@ -43,14 +44,13 @@ function App() {
         handleAnalyze={handleAnalyze}
       />
 
-      {loading && (
-        <h3>Analyzing...</h3>
-      )}
+      {loading && <p>Analyzing Student Response...</p>}
 
       {result && (
         <div>
           <ResultsSection result={result}/> 
-          <StressChart />
+          <StressChart result={result} />
+          <Recommendations result={result} />
         </div>
       )}
 

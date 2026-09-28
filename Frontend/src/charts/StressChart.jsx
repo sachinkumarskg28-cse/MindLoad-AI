@@ -1,37 +1,37 @@
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
-} from "chart.js";
+function StressChart({ result }) {
+  return (
+    <div className="chart-box">
+      <h2>Stress & Cognitive Load</h2>
 
-import { Bar } from "react-chartjs-2";
+      <div className="metric">
+        <p>Stress Score: {result.stressScore}%</p>
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend
-);
+        <div className="progress-track">
+          <div
+            className="progress-fill"
+            style={{
+              width: `${result.stressScore}%`,
+            }}
+          ></div>
+        </div>
+      </div>
 
-function StressChart() {
-  const data = {
-    labels: ["Stress", "Cognitive Load"],
+      <div className="metric">
+        <p>
+          Cognitive Load: {result.cognitiveLoadScore}%
+        </p>
 
-    datasets: [
-      {
-        label: "Score",
-        data: [85, 72],
-      },
-    ],
-  };
-
-  return <Bar data={data} />;
+        <div className="progress-track">
+          <div
+            className="progress-fill"
+            style={{
+              width: `${result.cognitiveLoadScore}%`,
+            }}
+          ></div>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default StressChart;

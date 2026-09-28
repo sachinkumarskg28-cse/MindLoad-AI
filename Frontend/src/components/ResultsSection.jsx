@@ -27,6 +27,11 @@ function ResultsSection({ result }) {
           value={result.sentiment}
         />
 
+        <ResultCard
+          title="Confidence"
+          value={`${result.confidence}%`}
+       />
+
       </div>
     </div>
   );
