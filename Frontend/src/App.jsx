@@ -1,3 +1,4 @@
+import StressChart from "./charts/StressChart";
 import { useState } from "react";
 import "./App.css";
 
@@ -47,9 +48,10 @@ function App() {
       )}
 
       {result && (
-        <ResultsSection
-          result={result}
-        />
+        <div>
+          <ResultsSection result={result}/> 
+          <StressChart />
+        </div>
       )}
 
     </div>
